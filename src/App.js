@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { TonicProvider, colorStyle } from "@tonic-ui/react";
+import MyMenu from "./components/MyMenu";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TonicProvider
+        colorMode={{
+          defaultValue: "dark", // One of: 'dark', 'light'
+        }}
+        colorStyle={{
+          defaultValue: colorStyle, // Custom color style
+        }}
+        useCSSBaseline={true} // If `true`, apply CSS reset and base styles
+      >
+        <MyMenu />
+      </TonicProvider>
     </div>
   );
 }
